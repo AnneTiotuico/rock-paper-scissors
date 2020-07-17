@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+    <script>
+        function computerPlay() {
+            //Computer randomly returns either rock paper or scissors
+            let num = Math.floor(Math.random() * Math.floor(3))
+            let computerSelection;
+            if (num === 0) {
+                computerSelection = "Rock" 
+            } 
+            else if (num === 1) {
+                computerSelection = "Paper"
+            }
+            else {
+                computerSelection = "Scissors"
+            }
+            return computerSelection
+        }
+
+        function playRound(playerSelection, computerSelection) {
+            let playerSelection = playerSelection.toLowerCase()
+            if playerSelection
+        }
+
+        function game() {
+            let i = 0;
+            if (i <= 5) {
+                i ++
+                playRound()
+            }
+        }
+
+
+
+    </script>
+    </body>
+</html>

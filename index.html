@@ -5,11 +5,57 @@
         <meta charset="UTF-8">
     </head>
     <body>
+        <button id="rock">Rock</button>
+        <button id="paper">Paper</button>
+        <button id="scissors">Scissors</button>
+
+        
+        <div class="results">
+            Results:
+        </div>
+        <div class="scores">
+            <div class="playerScores">
+                Player:
+            </div>
+            <div class="cpuScores">
+                Computer:
+            </div>
+        </div>
+
+
     <script>
+        // buttons is a node list. It looks and acts much like an array.
+        const buttons = document.querySelectorAll('button');
+
+        // we use the .forEach method to iterate through each button
+        buttons.forEach((button) => {
+
+        // and for each one we add a 'click' listener
+        button.addEventListener('click', function(){ 
+            playRound(button.id, computerPlay());
+            });
+        });
+
+        const results = document.querySelector('.results');
+        const result = document.createElement('p');
+        results.appendChild(result);
+
+        const playerScores = document.querySelector('.playerScores');
+        const playerScore = document.createElement('p');
+        playerScores.appendChild(playerScore);
+
+        const cpuScores = document.querySelector('.cpuScores');
+        const cpuScore = document.createElement('p');
+        cpuScores.appendChild(cpuScore);
+
         let playerPoints = 0;
         let cpuPoints = 0;
+
+        playerScore.textContent = playerPoints;
+        cpuScore.textContent = cpuPoints;
+
         function computerPlay() {
-            //Computer randomly returns either rock paper or scissors
+            //Computer randomly returns either rock, paper or scissors
             let num = Math.floor(Math.random() * Math.floor(3))
             let computerSelection;
             if (num === 0) {
@@ -26,32 +72,39 @@
 
         function playRound(playerSelection, computerSelection) {
             if (playerSelection == "rock" && computerSelection == "paper") {
-                console.log("You lose! paper beats rock")
-                return cpuPoints ++
+                result.textContent = "You lose! paper beats rock";
+                cpuPoints++;
+                cpuScore.textContent = cpuPoints;
             }
             else if (playerSelection == "paper" && computerSelection == "scissors") {
-                console.log("You lose! scissors beats paper")
-                return cpuPoints ++
+                result.textContent = "You lose! scissors beats paper";
+                cpuPoints++;
+                cpuScore.textContent = cpuPoints;
             }
             else if (playerSelection == "scissors" && computerSelection == "rock") {
-                console.log("You lose! rock beats scissors")
-                return cpuPoints ++
+                result.textContent = "You lose! rock beats scissors";
+                cpuPoints++;
+                cpuScore.textContent = cpuPoints;
             }
             else if (playerSelection === computerSelection) {
-                console.log("It's a tie!")
+                result.textContent = "It's a tie!";
             }
             else {
-                console.log(`You win! ${playerSelection} beats ${computerSelection}`)
-                return playerPoints ++
+                result.textContent = `You win! ${playerSelection} beats ${computerSelection}`;
+                playerPoints++;
+                playerScore.textContent = playerPoints;
+            }
+
+            if (playerPoints === 5) {
+                alert("Player wins!")
+            }
+            else if (cpuPoints === 5) {
+                alert("Computer wins.")
             }
             
         }
-        /* test
-        const playerSelection = "rock";
-        const computerSelection = computerPlay();
-        console.log(playRound(playerSelection, computerSelection))
-        */
 
+        /*
         function game() {
             let i = 0;
             while (i < 5) {
@@ -77,7 +130,7 @@
            
         }
 
-
+        */
 
     </script>
     </body>

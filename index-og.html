@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+    <script>
+        let playerPoints = 0;
+        let cpuPoints = 0;
+        function computerPlay() {
+            //Computer randomly returns either rock paper or scissors
+            let num = Math.floor(Math.random() * Math.floor(3))
+            let computerSelection;
+            if (num === 0) {
+                computerSelection = "Rock" 
+            } 
+            else if (num === 1) {
+                computerSelection = "Paper"
+            }
+            else {
+                computerSelection = "Scissors"
+            }
+            return computerSelection.toLowerCase()
+        }
+
+        function playRound(playerSelection, computerSelection) {
+            if (playerSelection == "rock" && computerSelection == "paper") {
+                console.log("You lose! paper beats rock")
+                return cpuPoints ++
+            }
+            else if (playerSelection == "paper" && computerSelection == "scissors") {
+                console.log("You lose! scissors beats paper")
+                return cpuPoints ++
+            }
+            else if (playerSelection == "scissors" && computerSelection == "rock") {
+                console.log("You lose! rock beats scissors")
+                return cpuPoints ++
+            }
+            else if (playerSelection === computerSelection) {
+                console.log("It's a tie!")
+            }
+            else {
+                console.log(`You win! ${playerSelection} beats ${computerSelection}`)
+                return playerPoints ++
+            }
+            
+        }
+
+        /*
+        function game() {
+            let i = 0;
+            while (i < 5) {
+                i ++
+                choice = prompt("Choose rock, paper, or scissors").toLowerCase()
+                computer = computerPlay()
+                console.log(`Round ${i}: You chose ${choice} and were up against ${computer}.`)
+                playRound(choice, computer)
+                console.log(`Player Points: ${playerPoints} | Computer Points ${cpuPoints}`)
+            }
+            
+            
+            if (playerPoints === cpuPoints) {
+                console.log("It's a tie. Play again.")
+            }
+            else if (playerPoints > cpuPoints) {
+                console.log("Congrats! You won the game!")
+            }
+            else {
+                console.log("Sorry, the computer won this time. Play again.")
+            }
+            
+           
+        }
+
+        */
+
+    </script>
+    </body>
+</html>
